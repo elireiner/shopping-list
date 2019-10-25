@@ -17,9 +17,11 @@ function interactiveList() {
     $(`ul[class="shopping-list"]`).click(function (event) {
         if (event.target.className === 'shopping-item-toggle') {
             console.log('hi');
-            //$(event.target).closest('span[class="shopping-item"]').toggleClass("shopping-item__checked");
+           
         }
     })
 }
 
 $(interactiveList);
+
+//$(event.target).closest('span[class="shopping-item"]').toggleClass("shopping-item__checked");
