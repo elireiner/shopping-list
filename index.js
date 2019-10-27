@@ -17,6 +17,9 @@ function interactiveList() {
     $(`ul[class="shopping-list"]`).on('click', 'button[class="shopping-item-toggle"]', function (event) {
         $(this).closest('div[class="shopping-item-controls"]').prev().toggleClass("shopping-item__checked");
     });
+    $(`ul[class="shopping-list"]`).on('click', 'button[class="shopping-item-delete"]', function (event) {
+        $(this).closest('li').remove();
+    });
 };
 
 $(interactiveList);
