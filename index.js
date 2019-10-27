@@ -1,7 +1,7 @@
 function interactiveList() {
     $('form').submit(function (event) {
         event.preventDefault();
-        let userInput = $(event.currentTarget).find(`input[name="shopping-list-entry"]`).val();
+        let userInput = $(this).find(`input[name="shopping-list-entry"]`).val();
         $(`ul[class="shopping-list"]`).append(`<li>
         <span class="shopping-item">${userInput}</span>
         <div class="shopping-item-controls">
@@ -14,14 +14,9 @@ function interactiveList() {
         </div>
         </li>`)
     })
-    $(`ul[class="shopping-list"]`).click(function (event) {
-        if (event.target.className === 'shopping-item-toggle') {
-            console.log('hi');
-           
-        }
-    })
-}
+    $(`ul[class="shopping-list"]`).on('click', 'button[class="shopping-item-toggle"]', function (event) {
+        $(this).closest('div[class="shopping-item-controls"]').prev().toggleClass("shopping-item__checked");
+    });
+};
 
 $(interactiveList);
-
-//$(event.target).closest('span[class="shopping-item"]').toggleClass("shopping-item__checked");
